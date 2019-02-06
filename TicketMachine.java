@@ -9,7 +9,7 @@
  * @author David J. Barnes and Michael Kolling
  * @version 2008.03.30
  */
-public class TicketMachine
+class  TicketMachine
 {
     // The price of a ticket from this machine.
     private int price;
@@ -17,19 +17,21 @@ public class TicketMachine
     private int balance;
     // The total amount of money collected by this machine.
     private int total;
+    //The full declaration for a field of type int whose name is status
+    private int status;
 
     /**
      * Create a machine that issues tickets of the given price.
      * Note that the price must be greater than zero, and there
      * are no checks to ensure this.
      */
-    public TicketMachine(int ticketCost)
+    public TicketMachine()
     {
-        price = ticketCost;
+        price = 1000;
         balance = 0;
         total = 0;
     }
-
+    
     /**
      * Return the price of a ticket.
      */
@@ -42,11 +44,27 @@ public class TicketMachine
      * Return the amount of money already inserted for the
      * next ticket.
      */
-    public int getBalance()
+    public int getAmount()
     {
         return balance;
     }
-
+    public int getTotal()
+    {
+        return total;   
+    }
+    public void setPrice()
+    {
+        price = 25;
+    }
+    public void setPrice(int ticketCost)
+    {
+        price = ticketCost;
+    }
+    public int empty()
+    {
+        total = 0;
+        return total;
+    }
     /**
      * Receive an amount of money in cents from a customer.
      */
@@ -54,7 +72,15 @@ public class TicketMachine
     {
         balance = balance + amount;
     }
-
+    public void prompt()
+    {
+        System.out.println("Please insert the correct amount of money.");
+    }
+    public void showPrice()
+    {
+        int xyz = price;
+        System.out.println("The price of a ticket is " + xyz + " cents.");
+    }
     /**
      * Print a ticket.
      * Update the total collected and
